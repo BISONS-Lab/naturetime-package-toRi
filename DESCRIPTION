@@ -1,0 +1,12 @@
+Package: toRi
+Title: Calculating tiem orientation indices from online data
+Version: 0.1.0
+Authors@R: 
+    person("Ricardo", "Correia", "rahc@52gmail.com", role = c("aut", "cre"))
+Description: Package toRi provides a set of functions to download and calculate time orientation indices from internet search data
+License: MIT + file LICENSE
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.2
+Imports: 
+    gtrendsAPI
