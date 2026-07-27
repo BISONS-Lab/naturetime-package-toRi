@@ -4,10 +4,10 @@
 \alias{calculateTOI}
 \title{Calculate Temporal Orientation Indices from relative yearly interest data}
 \usage{
-calculateTOI(tmp.data, focus.year, present.int, past.int, future.int)
+calculateTOI(data, focus.year, present.int, past.int, future.int)
 }
 \arguments{
-\item{tmp.data}{A data.frame containing the necessary information to calculate the temporal orientation indices. The data.frame should contain at least four columns indicating the focus year, and present, past and future search interest, which the functio ntries to identify autocatially. Alternatively, this information can be assigned manually using the other function parameters.}
+\item{data}{A data table containing the necessary information to calculate the temporal orientation indices. The data.frame should contain at least four columns indicating the focus year, and present, past and future search interest, which the functio ntries to identify autocatially. Alternatively, this information can be assigned manually using the other function parameters.}
 
 \item{focus.year}{(optional) A numeric value indicating the focus year of the analysis, for which time orientation metrics will be calculated.}
 

@@ -1,6 +1,6 @@
 #' Calculate Temporal Orientation Indices from relative yearly interest data
 #'
-#' @param tmp.data A data.frame containing the necessary information to calculate the temporal orientation indices. The data.frame should contain at least four columns indicating the focus year, and present, past and future search interest, which the functio ntries to identify autocatially. Alternatively, this information can be assigned manually using the other function parameters.
+#' @param data A data table containing the necessary information to calculate the temporal orientation indices. The data.frame should contain at least four columns indicating the focus year, and present, past and future search interest, which the functio ntries to identify autocatially. Alternatively, this information can be assigned manually using the other function parameters.
 #' @param focus.year (optional) A numeric value indicating the focus year of the analysis, for which time orientation metrics will be calculated.
 #' @param present.int (optional) A vector of relative search interest values for the focus year of the analysis.
 #' @param past.int (optional) A vector of relative search interest values for the year before the focus year of the analysis.
@@ -32,80 +32,84 @@
 #'
 #' test.toi <- calculateTOI(test.sv)
 #' }
-calculateTOI <- function(tmp.data, focus.year, present.int, past.int, future.int){
+calculateTOI <- function(data, focus.year, present.int, past.int, future.int){
 
   # Check if focus.year is missing
   if(missing(focus.year)){
 
     # Check if data.frame or individual vectors
-    if(!missing(tmp.data)){
+    if(!missing(data)){
 
-      # Check if focus year is in tmp.data
-      if(sum(grepl("year", colnames(tmp.data), ignore.case = TRUE))==0){
+      if(!is.data.frame(data)){
+        data <- as.data.frame(data)
+      }
+
+      # Check if focus year is in data
+      if(sum(grepl("year", colnames(data), ignore.case = TRUE))==0){
 
         stop("No columns match the word 'year', please assign focus.year manually")
 
-      } else if(sum(grepl("year", colnames(tmp.data), ignore.case = TRUE))>1){
+      } else if(sum(grepl("year", colnames(data), ignore.case = TRUE))>1){
 
         stop("Multiple columns match the word 'year', please assign focus.year manually")
 
       } else {
 
-        if(length(unique(tmp.data[,grepl("year", colnames(tmp.data), ignore.case = TRUE)]))!=1){
+        if(length(unique(data[,grepl("year", colnames(data), ignore.case = TRUE)]))!=1){
 
           stop("Multiple values found in focus.year, please input focus.year manually")
 
         } else {
 
-          focus.year <- unique(tmp.data[,grepl("year", colnames(tmp.data), ignore.case = TRUE)])
+          focus.year <- unique(data[,grepl("year", colnames(data), ignore.case = TRUE)])
 
         }
 
       }
 
       # Check if present data is found
-      if(sum(grepl("present", colnames(tmp.data), ignore.case = TRUE))==0){
+      if(sum(grepl("present", colnames(data), ignore.case = TRUE))==0){
 
         stop("No columns match the word 'present', please assign search interest data manually")
 
-      } else if(sum(grepl("present", colnames(tmp.data), ignore.case = TRUE))>1){
+      } else if(sum(grepl("present", colnames(data), ignore.case = TRUE))>1){
 
         stop("Multiple columns match the word 'present', please assign search interest data manually")
 
       } else {
 
-        present.int <- tmp.data[,grepl("present", colnames(tmp.data), ignore.case = TRUE)]
+        present.int <- data[,grepl("present", colnames(data), ignore.case = TRUE)]
 
       }
 
 
       # Check if past data is found
-      if(sum(grepl("past", colnames(tmp.data), ignore.case = TRUE))==0){
+      if(sum(grepl("past", colnames(data), ignore.case = TRUE))==0){
 
         stop("No columns match the word 'past', please assign search interest data manually")
 
-      } else if(sum(grepl("past", colnames(tmp.data), ignore.case = TRUE))>1){
+      } else if(sum(grepl("past", colnames(data), ignore.case = TRUE))>1){
 
         stop("Multiple columns match the word 'past', please assign search interest data manually")
 
       } else {
 
-        past.int <- tmp.data[,grepl("past", colnames(tmp.data), ignore.case = TRUE)]
+        past.int <- data[,grepl("past", colnames(data), ignore.case = TRUE)]
 
       }
 
       # Check if future data is found
-      if(sum(grepl("future", colnames(tmp.data), ignore.case = TRUE))==0){
+      if(sum(grepl("future", colnames(data), ignore.case = TRUE))==0){
 
         stop("No columns match the word 'future', please assign search interest data manually")
 
-      } else if(sum(grepl("future", colnames(tmp.data), ignore.case = TRUE))>1){
+      } else if(sum(grepl("future", colnames(data), ignore.case = TRUE))>1){
 
         stop("Multiple columns match the word 'future', please assign search interest data manually")
 
       } else {
 
-        future.int <- tmp.data[,grepl("future", colnames(tmp.data), ignore.case = TRUE)]
+        future.int <- data[,grepl("future", colnames(data), ignore.case = TRUE)]
 
       }
 
@@ -128,8 +132,6 @@ calculateTOI <- function(tmp.data, focus.year, present.int, past.int, future.int
     }
 
   }
-
-
 
   # Calculate proportion of present interest
   prop.pres <- sum(present.int)/sum(present.int, past.int, future.int)
