@@ -12,7 +12,7 @@
 #' @export
 #' @examples
 #' \dontrun{
-#' getConceptSearches(focus.year = 2010, geo = "US", api.key)
+#' getConceptSearches(focus.year = 2010, geo = "US", api.key = "YOURAPIKEY")
 #' }
 getConceptSearches <- function(focus.year, geo = NULL, api.key){
   # Check year length and class
