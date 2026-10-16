@@ -28,6 +28,6 @@ Extract relative search interest from Google Trends for a target year and a temp
 }
 \examples{
 \dontrun{
-getYearSearches(focus.year = 2010, search.horizon = 5, geo = "US", api.key)
+getYearSearches(focus.year = 2010, search.horizon = 5, geo = "US", api.key = "YOURAPIKEY")
 }
 }

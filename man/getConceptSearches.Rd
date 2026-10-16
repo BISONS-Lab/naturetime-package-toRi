@@ -26,6 +26,6 @@ Extract relative search interest from Google Trends for past, present and future
 }
 \examples{
 \dontrun{
-getConceptSearches(focus.year = 2010, geo = "US", api.key)
+getConceptSearches(focus.year = 2010, geo = "US", api.key = "YOURAPIKEY")
 }
 }
