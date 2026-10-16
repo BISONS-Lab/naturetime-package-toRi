@@ -27,7 +27,7 @@ You can install the development version of toRi from [GitHub](https://github.com
 
 ``` r
 # install.packages("pak")
-pak::pak("racorreia/toRi")
+pak::pak("BISONS-Lab/naturetime-package-tori")
 ```
 
 ## Example
@@ -59,3 +59,7 @@ Examples of the use of each function available in this package are provided can 
 ?checkData
 ?calculateTOI
 ```
+
+## Funding
+
+Funded by the European Union (ERC, NATURETIME, 101230145). Views and opinions expressed are, however, those of the author(s) only and do not necessarily reflect those of the European Union or the European Research Council. Neither the European Union nor the granting authority can be held responsible for them. 

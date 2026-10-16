@@ -18,7 +18,7 @@ You can install the development version of toRi from
 
 ``` r
 # install.packages("pak")
-pak::pak("racorreia/toRi")
+pak::pak("BISONS-Lab/naturetime-package-tori")
 ```
 
 ## Example
@@ -48,7 +48,16 @@ provided can be consulted by calling the help function as shown:
 ``` r
 # Get function help
 ?getYearSearches
+#> starting httpd help server ... done
 ?getConceptSearches
 ?checkData
 ?calculateTOI
 ```
+
+## Funding
+
+Funded by the European Union (ERC, NATURETIME, 101230145). Views and
+opinions expressed are, however, those of the author(s) only and do not
+necessarily reflect those of the European Union or the European Research
+Council. Neither the European Union nor the granting authority can be
+held responsible for them.
