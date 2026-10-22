@@ -7,9 +7,9 @@
 
 <!-- badges: end -->
 
-The goal of toRi is to provided a simple way to calculate temporal
-orientation indices in R from data obtained from Google Trends or other
-online plaforms.
+The goal of toRi R package is to provide a seamless way to calculate
+temporal orientation indices in R from data obtained from Google Trends
+or other online platforms.
 
 ## Installation
 
