@@ -61,7 +61,7 @@ calculateTOI <- function(data, focus.year, present.int, past.int, future.int){
 
         } else {
 
-          focus.year <- unique(data[,grepl("year", colnames(data), ignore.case = TRUE)])
+          focus.year <- unlist(unique(data[,grepl("year", colnames(data), ignore.case = TRUE)]), use.names = F)
 
         }
 
@@ -78,7 +78,7 @@ calculateTOI <- function(data, focus.year, present.int, past.int, future.int){
 
       } else {
 
-        present.int <- data[,grepl("present", colnames(data), ignore.case = TRUE)]
+        present.int <- unlist(data[,grepl("present", colnames(data), ignore.case = TRUE)], use.names = F)
 
       }
 
@@ -94,7 +94,7 @@ calculateTOI <- function(data, focus.year, present.int, past.int, future.int){
 
       } else {
 
-        past.int <- data[,grepl("past", colnames(data), ignore.case = TRUE)]
+        past.int <- unlist(data[,grepl("past", colnames(data), ignore.case = TRUE)], use.names = F)
 
       }
 
@@ -109,7 +109,7 @@ calculateTOI <- function(data, focus.year, present.int, past.int, future.int){
 
       } else {
 
-        future.int <- data[,grepl("future", colnames(data), ignore.case = TRUE)]
+        future.int <- unlist(data[,grepl("future", colnames(data), ignore.case = TRUE)], use.names = F)
 
       }
 
@@ -169,7 +169,7 @@ calculateTOI <- function(data, focus.year, present.int, past.int, future.int){
   cum.future <- cumsum(rel.future)
   future.horizon <- sum(cum.future)/sum(future.ref.decay)
 
-  # Prepara data.frame for output
+  # Prepare data.frame for output
   toi.df <- data.frame(focus.year,
                        prop.pres,
                        prop.past,

@@ -12,7 +12,7 @@
 #'
 #' @docType data
 #' @keywords datasets
-#' @name sample_data
-#' @usage data(sample_data)
+#' @name sample_data_gt
+#' @usage data(sample_data_gt)
 #' @source {toRi} R package.
-"sample_data"
+"sample_data_gt"
