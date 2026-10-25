@@ -22,10 +22,10 @@
 #' data(sample_data)
 #' calculateTOI(sample_data)
 #'
-#' calculateTOI(focus.year = 2004,
-#'              present.int = sample_data$present.sv,
-#'              past.int = sample_data$past.sv,
-#'              future.int = sample_data$future.sv)
+#' calculateTOI(focus.year = 2025,
+#'              present.int = sample_data$present.pv,
+#'              past.int = sample_data$past.pv,
+#'              future.int = sample_data$future.pv)
 #'
 #' \dontrun{
 #' test.sv <- getYearSearches(focus.year = 2010, search.horizon = 5, geo = "US", api.key)
