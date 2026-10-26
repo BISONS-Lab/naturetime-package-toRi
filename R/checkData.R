@@ -67,7 +67,7 @@ checkData <- function(data){
     }
 
     if(checkNoYear){
-      warning("No focus year column was identified in the data. Consider assigning focus year manually for calculating temporal orientation indices.", call. = FALSE)
+      warning("No focus year column was confidently identified in the data. Consider assigning focus year manually for calculating temporal orientation indices.", call. = FALSE)
     }
 
     if(checkMultYear){
@@ -79,7 +79,7 @@ checkData <- function(data){
     }
 
     if(checkNoPresent){
-      warning("No column identified that is likely to contain data on interest in the present was identified. Consider assigning present interest data manually for calculating temporal orientation indices.", call. = FALSE)
+      warning("No column identified as likely to contain data on interest in the present. Consider assigning present interest data manually for calculating temporal orientation indices.", call. = FALSE)
     }
 
     if(checkMultPresent){
@@ -87,7 +87,7 @@ checkData <- function(data){
     }
 
     if(checkNoPast){
-      warning("No column identified that is likely to contain data on interest in the past was identified. Consider assigning past interest data manually for calculating temporal orientation indices.", call. = FALSE)
+      warning("No column identified as likely to contain data on interest in the past. Consider assigning past interest data manually for calculating temporal orientation indices.", call. = FALSE)
     }
 
     if(checkMultPast){
@@ -95,7 +95,7 @@ checkData <- function(data){
     }
 
     if(checkNoFuture){
-      warning("No column identified that is likely to contain data on interest in the future was identified. Consider assigning future interest data manually for calculating temporal orientation indices.", call. = FALSE)
+      warning("No column identified as likely to contain data on interest in the future. Consider assigning future interest data manually for calculating temporal orientation indices.", call. = FALSE)
     }
 
     if(checkMultFuture){
