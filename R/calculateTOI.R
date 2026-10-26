@@ -20,12 +20,14 @@
 #' @export
 #' @examples
 #' data(sample_data)
-#' calculateTOI(sample_data)
 #'
-#' calculateTOI(focus.year = 2025,
-#'              present.int = sample_data$present.pv,
-#'              past.int = sample_data$past.pv,
-#'              future.int = sample_data$future.pv)
+#' calculateTOI(focus.year = sample_data$focus_year,
+#'              present.int = sample_data$'2025',
+#'              past.int = sample_data$'2024',
+#'              future.int = sample_data$'2026')
+#'
+#' names(sample_data) <- c("focus_year", "present", "past", "future")
+#' calculateTOI(sample_data)
 #'
 #' \dontrun{
 #' test.sv <- getYearSearches(focus.year = 2010, search.horizon = 5, geo = "US", api.key)
@@ -126,9 +128,15 @@ calculateTOI <- function(data, focus.year, present.int, past.int, future.int){
       stop("Please provide search interest data for all temporal dimensions")
     }
 
+    #Check if temporal parameters are numeric
+    if(any(!is.numeric(present.int)|!is.numeric(past.int)|!is.numeric(future.int))){
+      stop("Please ensure all temporal dimensions contain numeric data")
+    }
+
     # Check focus year
-    if(length(focus.year)!=1 | !is.numeric(focus.year)){
-      stop("Parameter focus.year should be a single number indicating a target focus year")
+    focus.yr <- unique(focus.year)
+    if(length(focus.yr)!=1 | !is.numeric(focus.yr)){
+      stop("Parameter focus.year contain a single number indicating a target focus year")
     }
 
   }

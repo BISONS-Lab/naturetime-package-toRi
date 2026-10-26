@@ -18,4 +18,7 @@ Implement a set of basic data checks for conditions needed to calculate time ori
 \examples{
 data(sample_data)
 checkData(sample_data)
+
+names(sample_data) <- c("focus_year", "present", "past", "future")
+checkData(sample_data)
 }

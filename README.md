@@ -27,10 +27,17 @@ This is a basic example of the usage framework for the toRi package:
 
 ``` r
 library(toRi)
-## load exmaple dataset
+## Load example dataset
 data(sample_data)
 
-## check data fit for calculating temporal orientation indices
+## Check data fit for calculating temporal orientation indices
+checkData(sample_data)
+#> [1] "Check complete, no warnings"
+
+# Edit data names for check fit
+names(sample_data) <- c("focus_year", "present", "past", "future")
+
+## Check data again
 checkData(sample_data)
 #> [1] "Check complete, no warnings"
 

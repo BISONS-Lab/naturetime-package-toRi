@@ -1,13 +1,13 @@
-#' Dataset of Finnish language Wikipedia pageviews accumulated during 2025 for the years 2024, 2025, and 2025
+#' Dataset of relative search volume accumulated during 2025 for the years 2024, 2025, and 2025 in the United States
 #'
-#' A dataset containing the focus year and pageviews during 2025 for present, past and future temporal dimensions. The variables are as follows:
+#' A dataset containing the focus year and relative search volume during 2025 for present, past and future temporal dimensions. The variables are as follows:
 #'
 #' @format A data frame with 53 rows (weeks) and 4 variables:
 #' \describe{
-#'   \item{focus.year}{The search year of interest}
-#'   \item{present.pv}{Total pageviews for the year 2025}
-#'   \item{past.pv}{Total pageviews for the year 2025}
-#'   \item{future.pv}{Total pageviews for the year 2025}
+#'   \item{focus_year}{The search year of interest}
+#'   \item{2025}{Relative search volume for the year 2025}
+#'   \item{2024}{Relative search volume for the year 2024}
+#'   \item{2026}{Relative search volume for the year 2026}
 #' }
 #'
 #' @docType data

@@ -36,12 +36,14 @@ Calculate Temporal Orientation Indices from relative yearly interest data
 }
 \examples{
 data(sample_data)
-calculateTOI(sample_data)
 
-calculateTOI(focus.year = 2025,
-             present.int = sample_data$present.pv,
-             past.int = sample_data$past.pv,
-             future.int = sample_data$future.pv)
+calculateTOI(focus.year = sample_data$focus_year,
+             present.int = sample_data$'2025',
+             past.int = sample_data$'2024',
+             future.int = sample_data$'2026')
+
+names(sample_data) <- c("focus_year", "present", "past", "future")
+calculateTOI(sample_data)
 
 \dontrun{
 test.sv <- getYearSearches(focus.year = 2010, search.horizon = 5, geo = "US", api.key)

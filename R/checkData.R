@@ -7,6 +7,9 @@
 #' @examples
 #' data(sample_data)
 #' checkData(sample_data)
+#'
+#' names(sample_data) <- c("focus_year", "present", "past", "future")
+#' checkData(sample_data)
 checkData <- function(data){
 
   # Convert to data.frame
@@ -75,8 +78,16 @@ checkData <- function(data){
       warning("Multiple years were identified in the column likely containing focus year information. Check the data and consider assigning focus year manually for calculating temporal orientation indices.", call. = FALSE)
     }
 
+    if(checkNoPresent){
+      warning("No column identified that is likely to contain data on interest in the present was identified. Consider assigning present interest data manually for calculating temporal orientation indices.", call. = FALSE)
+    }
+
+    if(checkMultPresent){
+      warning("Multiple columns likely to contain data on interest in the present were identified. Consider assigning present interest data manually for calculating temporal orientation indices.", call. = FALSE)
+    }
+
     if(checkNoPast){
-      warning("No column likely to contain data on interest in the past was identified. Consider assigning past interest data manually for calculating temporal orientation indices.", call. = FALSE)
+      warning("No column identified that is likely to contain data on interest in the past was identified. Consider assigning past interest data manually for calculating temporal orientation indices.", call. = FALSE)
     }
 
     if(checkMultPast){
@@ -84,7 +95,7 @@ checkData <- function(data){
     }
 
     if(checkNoFuture){
-      warning("No column likely to contain data on interest in the future was identified. Consider assigning future interest data manually for calculating temporal orientation indices.", call. = FALSE)
+      warning("No column identified that is likely to contain data on interest in the future was identified. Consider assigning future interest data manually for calculating temporal orientation indices.", call. = FALSE)
     }
 
     if(checkMultFuture){
